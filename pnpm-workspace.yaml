@@ -103,7 +103,7 @@ catalogs:
     vue-router: ^5.1.0
   types:
     '@types/crypto-js': ^4.2.2
-    '@types/node': ^25.9.5
+    '@types/node': ^26.1.1
     '@types/nprogress': ^0.2.3
     '@types/qs': ^6.15.1
 

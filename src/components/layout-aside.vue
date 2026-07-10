@@ -21,14 +21,6 @@
                         </div>
                     </template>
                     <ul class="drop-menu">
-                        <li class="" flex="~ items-center" mb-5px cursor-pointer rounded-5px px-10px py-5px @click="handleToCenter">
-                            <el-icon> <UserFilled /> </el-icon>
-                            <span ml-6px>个人中心</span>
-                        </li>
-                        <li class="" flex="~ items-center" mb-5px cursor-pointer rounded-5px px-10px py-5px @click="handleModifyPass">
-                            <el-icon> <EditPen /> </el-icon>
-                            <span ml-6px>修改密码</span>
-                        </li>
                         <li class="" flex="~ items-center" cursor-pointer rounded-5px px-10px py-5px @click="handleExit">
                             <el-icon> <SwitchButton /> </el-icon>
                             <span ml-6px>退出登录</span>
@@ -47,14 +39,11 @@
                 </el-tooltip>
             </footer>
         </section>
-        <user-dialog v-if="isOpenUserDialog" v-model="isOpenUserDialog" v-model:type="userDialogType"></user-dialog>
     </aside>
 </template>
 
 <script setup lang="ts">
-import type { ElPopoverInstance } from '~/types/components.types'
-
-import { EditPen, SwitchButton, UserFilled } from '@element-plus/icons-vue'
+import { SwitchButton } from '@element-plus/icons-vue'
 import { clearLoginData } from '~/composables/storage'
 import useMenuStore from '~/stores/use-menu-store'
 
@@ -68,20 +57,6 @@ const router = useRouter()
 function handleExit() {
     clearLoginData()
     router.replace('/login')
-}
-
-const popoverRef = useTemplateRef<ElPopoverInstance>('popoverRef')
-const isOpenUserDialog = ref(false)
-const userDialogType = ref(1)
-function handleToCenter() {
-    userDialogType.value = 1
-    popoverRef.value?.hide()
-    isOpenUserDialog.value = true
-}
-function handleModifyPass() {
-    userDialogType.value = 2
-    popoverRef.value?.hide()
-    isOpenUserDialog.value = true
 }
 
 const menuStore = useMenuStore()

@@ -1,0 +1,34 @@
+.el-notification {
+    &.top-center {
+        right: auto !important;
+        left: 50%;
+        transform: translateX(-50%);
+
+        // margin-left: -165px;
+    }
+
+    // 'success' | 'warning' | 'info' | 'error'
+    &.error {
+        background-color: #fee9e1;
+        border: 1px solid #fa4808;
+
+        .el-notification__title,
+        .el-notification__content {
+            color: #fa4808;
+        }
+    }
+
+    &.success {
+        background-color: #e5effe;
+        border: 1px solid var(--el-color-primary);
+
+        .el-notification__title,
+        .el-notification__content {
+            color: var(--el-color-primary);
+        }
+
+        .el-notification--success {
+            color: var(--el-color-primary) !important;
+        }
+    }
+}

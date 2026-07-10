@@ -1,0 +1,38 @@
+// 搜索时的下拉框样式
+.el-select.search-select {
+    .el-select__wrapper {
+        height: 32px;
+        font-size: 12px;
+        line-height: 20px;
+        background-color: rgb(245, 245, 245, 1);
+        border: none !important;
+        box-shadow: none !important;
+
+        .el-icon,
+        .el-select__input {
+            color: rgb(71, 71, 71, 1);
+
+            --el-select-input-font-size: 12px;
+        }
+
+        .select-icon {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        .el-select__suffix {
+            .el-select__caret.is-reverse {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.el-select__selected-item {
+    .el-tag.el-tag--info {
+        --el-tag-bg-color: #e9e9e9;
+        --el-tag-text-color: rgb(105, 105, 105);
+
+        // box-shadow: 0 0 1px 0px #d2d2d2 inset;
+    }
+}

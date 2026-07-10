@@ -1,0 +1,63 @@
+@use 'sass:color';
+
+// el-popover
+
+.el-popper--small {
+    .el-select-dropdown__item {
+        height: 30px;
+        font-size: 12px;
+        line-height: 30px;
+    }
+}
+
+.el-popover.el-popper.history-option-pop {
+    min-width: 0 !important;
+
+    .history-option-pop-btn-box {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: flex-start;
+
+        .el-button {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+.el-popover.el-popper.table-option-pop {
+    min-width: 0 !important;
+
+    $color: rgb(49, 55, 61, 1);
+    $lighter-color: color.adjust($color, $lightness: 24%);
+    $darken-color: color.adjust($color, $lightness: -24%);
+
+    .table-option-pop-btn-box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .el-button {
+            margin-left: 0 !important;
+        }
+
+        .el-divider--horizontal {
+            margin: 2px 0;
+        }
+    }
+
+    .el-button.is-link {
+        color: $color;
+        background: transparent;
+        border-color: transparent;
+
+        &:hover {
+            color: $lighter-color;
+        }
+
+        &:active {
+            color: $darken-color;
+        }
+    }
+}

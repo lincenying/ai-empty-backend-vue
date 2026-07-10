@@ -1,0 +1,12 @@
+/* 隐藏横向滚动条 */
+.el-scrollbar__wrap {
+    overflow-x: hidden !important;
+}
+
+.el-scrollbar__bar {
+    background-color: transparent !important;
+}
+
+.el-scrollbar__thumb {
+    // background: #e4e5e7 !important;
+}

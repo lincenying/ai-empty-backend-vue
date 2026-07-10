@@ -1,0 +1,43 @@
+.menu-box {
+    .tree-box {
+        .menu-tree-node {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            overflow: hidden;
+            font-size: 12px;
+            text-align: left;
+
+            .node-text {
+                box-sizing: border-box;
+                display: block;
+                flex: 1 0 auto;
+                padding-right: 8px;
+                overflow: hidden;
+
+                .active {
+                    color: var(--base-color);
+
+                    // animation: cur-node-bounce 1.8s linear infinite;
+                }
+            }
+
+            .btns {
+                display: block;
+                flex-shrink: 0;
+
+                button {
+                    padding: 0 8px !important;
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+.menu-dialog-form {
+    width: 100%;
+    margin: 0 auto;
+}

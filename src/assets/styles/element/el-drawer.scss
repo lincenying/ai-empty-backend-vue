@@ -1,0 +1,12 @@
+.el-drawer.message-drawer {
+    --el-drawer-padding-primary: 10px 20px;
+
+    .el-drawer__header {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .el-drawer__body {
+        padding: 0;
+    }
+}

@@ -1,0 +1,22 @@
+// el-dropdown popper-class
+.el-dropdown__popper {
+    &.add-childtab-pop {
+        --el-font-size-base: 12px !important;
+
+        .el-dropdown-menu__item {
+            .el-icon {
+                font-size: 13px;
+            }
+
+            &.current-item {
+                color: var(--base-color);
+            }
+        }
+    }
+}
+
+.drop-item {
+    .el-dropdown-menu {
+        width: 118px;
+    }
+}

@@ -1,0 +1,29 @@
+// 高斯模糊 blur(1px)
+// 亮度 brightness(100%)
+// 对比度 contrast(100%)
+// 灰度 grayscale(0%)
+// 色相旋转 hue-rotate(0-360deg)
+// 反色 invert(0-100%)
+// 透明度 opacity(0-100%)
+// 饱和度 saturate(0%)
+// 褐色 sepia(0-100%)
+// 阴影 drop-shadow(0px 0px 18px) (水平 垂直 模糊距离)
+
+$base-color-default: rgb(41, 120, 249);
+$base-filter-default: none;
+
+// 绿色
+$base-color-green: rgb(77, 200, 111);
+$base-filter-green: hue-rotate(245deg);
+
+// 红色
+$base-color-red: rgb(214, 15, 32);
+$base-filter-red: hue-rotate(140deg);
+
+// 紫色
+$base-color-purple: rgb(172, 37, 230);
+$base-filter-purple: hue-rotate(50deg);
+
+// 明青
+$base-color-cyan: rgb(19, 194, 194);
+$base-filter-cyan: hue-rotate(-45deg);

@@ -1,0 +1,175 @@
+@use 'sass:color';
+@use '@/assets/styles/variable.scss' as *;
+
+.el-button.el-button--large {
+    --el-component-size-large: 38px;
+}
+
+.el-button[disabled] {
+    .el-icon {
+        --color: #ccc;
+    }
+}
+
+// 去按钮背景色
+.el-button.is-text:not(.is-disabled):focus,
+.el-button.is-text:not(.is-disabled):hover {
+    background-color: transparent !important;
+}
+
+.app-main .el-button.is-link {
+    background: transparent;
+    border-color: transparent;
+}
+
+// el-button
+.el-button.table-option-btn {
+    .el-icon {
+        transform: rotateZ(90deg);
+        transform-origin: center center;
+    }
+}
+
+.el-button.common {
+    color: var(--el-color-primary) !important;
+    background-color: var(--base-color-12) !important;
+    border-color: transparent !important;
+
+    .el-icon {
+        width: auto !important;
+    }
+}
+
+.el-button.common.is-link {
+    $color: rgb(49, 55, 61, 1);
+    $lighter-color: color.adjust($color, $lightness: 24%);
+    $darken-color: color.adjust($color, $lightness: -24%);
+
+    color: $color !important;
+    background-color: transparent !important;
+
+    &:hover {
+        color: $lighter-color !important;
+    }
+
+    &:active {
+        color: $darken-color !important;
+    }
+}
+
+.el-button.el-button--primary {
+    $color: rgb(255, 255, 255, 1); // 定义基础颜色
+    $lighter-color: color.adjust($color, $lightness: 14%);
+    $darken-color: color.adjust($color, $lightness: -14%);
+
+    color: $color;
+    background-color: var(--el-color-primary);
+    border: none;
+    border-color: transparent;
+
+    &:hover {
+        color: $lighter-color;
+        background-color: var(--lighter-color);
+        border-color: transparent;
+    }
+
+    &:active {
+        color: $darken-color;
+        background-color: var(--darkek-color);
+        border-color: transparent;
+    }
+
+    &.is-link {
+        color: var(--el-color-primary);
+        background: none;
+
+        &:hover {
+            color: var(--lighter-color);
+        }
+
+        &:active {
+            color: var(--darken-bg-color);
+        }
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover {
+        color: var(--el-button-disabled-text-color);
+        background-color: var(--el-button-disabled-bg-color);
+        border-color: var(--el-button-disabled-border-color);
+    }
+}
+
+.el-button.el-button--primary.is-plain {
+    color: var(--el-button-text-color);
+    background-color: var(--el-button-bg-color);
+    border: var(--el-border);
+    border-color: var(--el-button-border-color);
+}
+
+.el-button.el-button--common {
+    color: var(--el-color-primary);
+    background-color: var(--base-color-06);
+    border-color: var(--el-color-primary);
+
+    &:hover {
+        color: var(--lighter-color);
+        background-color: var(--lighter-bg-color);
+        border-color: var(--lighter-color);
+    }
+
+    &:active {
+        color: var(--darken-color);
+        background-color: var(--darken-bg-color);
+        border-color: var(--darken-color);
+    }
+}
+
+.el-button.search-button {
+    color: var(--el-color-primary);
+    background-color: var(--base-color-12);
+    border: none;
+
+    &:hover {
+        color: var(--lighter-color);
+        background-color: var(--lighter-bg-color);
+    }
+
+    &:active {
+        color: var(--darken-color);
+        background-color: var(--darken-bg-color);
+    }
+}
+
+.el-button.history-option-btn {
+    $color: rgb(51, 51, 51, 1); // 定义基础颜色
+    $lighter-color: color.adjust($color, $lightness: 14%);
+    $darken-color: color.adjust($color, $lightness: -14%);
+    $bgColor: rgb(255, 255, 255, 0.8);
+    $lighter-bgColor: color.adjust($bgColor, $lightness: 14%);
+    $darken-bgcolor: color.adjust($bgColor, $lightness: -14%);
+
+    padding: 0 6px;
+    color: $color;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        color: $lighter-color;
+        background-color: $lighter-bgColor;
+    }
+
+    &:active {
+        color: $darken-color;
+        background-color: $darken-bgcolor;
+    }
+
+    &.is-poped {
+        background-color: $bgColor;
+        box-shadow: 2px 2px 8px 0 rgb(82, 90, 102, 0.16), 0 0 4px 0 rgb(82, 90, 102, 0.16);
+    }
+}
+
+.el-button.cur-doing {
+    color: #b5b5b5 !important;
+}

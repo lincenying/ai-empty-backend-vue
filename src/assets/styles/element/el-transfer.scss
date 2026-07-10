@@ -1,0 +1,45 @@
+@use 'sass:color';
+@use '@/assets/styles/variable.scss' as *;
+
+// el-transfer
+.el-transfer.roles-auth-transfer {
+    .el-transfer-panel__header {
+        .el-checkbox .el-checkbox__label {
+            color: var(--base-color);
+
+            span {
+                color: var(--el-color-primary-light-3);
+            }
+        }
+
+        background-color: var(--base-color-06);
+    }
+
+    .el-input {
+        .el-input__wrapper {
+            box-shadow: 0 0 0 1px var(--base-color-50) inset;
+
+            &.is-focus {
+                box-shadow: 0 0 0 1px var(--shadow-color) inset;
+            }
+
+            .el-input__inner {
+                color: var(--el-color-primary);
+
+                &::placeholder {
+                    color: var(--base-color-50);
+                }
+            }
+
+            .el-input__suffix .el-input__icon:not(.el-input__validateIcon),
+            .el-input__prefix .el-input__icon {
+                color: var(--el-color-primary);
+            }
+
+            .el-input__count .el-input__count-inner {
+                color: var(--el-color-primary);
+                background-color: transparent;
+            }
+        }
+    }
+}

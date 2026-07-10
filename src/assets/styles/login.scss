@@ -1,0 +1,120 @@
+.login-panel {
+    .el-input__wrapper {
+        padding-left: 30px;
+        border-radius: 8px;
+
+        &.is-focus {
+            box-shadow: 0 0 0 1px var(--el-color-primary) inset, 0 0 6px 0 var(--el-color-primary-light-3);
+        }
+    }
+
+    .rember,
+    .rember.is-checked {
+        $bcr: #474747;
+
+        .el-checkbox__label {
+            color: $bcr !important;
+        }
+
+        .el-checkbox__inner {
+            background-color: transparent !important;
+            border-color: $bcr !important;
+
+            &::after {
+                border-color: $bcr !important;
+            }
+        }
+    }
+}
+
+.login-bg {
+    background: url('@/assets/images/login-bg.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .login-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .login-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .title {
+                // min-width: 420px;
+                position: relative;
+                height: 80px;
+                margin-bottom: 36px;
+
+                // margin: 0 auto;
+                // background: url(@/assets/images/title_text.png) center center no-repeat;
+                // background-size: contain;
+                font-size: 30px;
+                line-height: 80px;
+
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    content: '';
+                    background: linear-gradient(to right, transparent 0%, #a4a4a4 50%, transparent 100%);
+
+                    // background: url('@/assets/images/bor.png') 0 0 no-repeat;
+                    // background-size: contain;
+                    // background-position: center;
+                }
+            }
+
+            .bor {
+                width: 320px;
+            }
+
+            .login-panel {
+                width: 480px;
+                margin: 0 auto;
+
+                .user-icon {
+                    width: 22px;
+                    height: 22px;
+                    color: var(--base-color);
+                }
+
+                .pwd-icon {
+                    width: 22px;
+                    height: 22px;
+                    color: var(--base-color);
+                }
+
+                .el-input {
+                    width: 480px;
+                    height: 54px;
+                }
+
+                .el-input__inner {
+                    margin-left: 10px;
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                }
+
+                .btn {
+                    width: 480px;
+                    height: 54px;
+                    font-size: 20px;
+                    border: none;
+                }
+
+                .rember {
+                    margin: 10px 0 25px;
+                }
+
+                .gutter {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,200 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '@/assets/styles/variable.scss' as *;
+
+/**
+color.adjust 参数:
+
+‌$lightness‌: 调整颜色的亮度（范围：-100% 到 100%）
+负值变暗，正值变亮。例如：$lightness: -10% 表示调暗 10%。
+
+‌$saturation‌: 调整颜色的饱和度（范围：-100% 到 100%）
+负值降低饱和度（更灰），正值增加饱和度（更鲜艳）。
+
+‌$hue‌: 调整颜色的色相（范围：-360° 到 360°）
+以度数为单位，改变颜色在色轮上的位置。例如：$hue: 30° 将红色向橙色偏移。
+
+‌$alpha‌: 调整颜色的透明度（范围：0 到 1）
+0 表示完全透明，1 表示完全不透明。例如：$alpha: 0.5 设置为 50% 透明。
+*/
+
+// $themes: (
+//     'default': (
+//         color: $base-color-default,
+//         filter: $base-filter-default,
+//         selector: '.theme-default'
+//     ),
+//     'red': (
+//         color: $base-color-red,
+//         filter: $base-filter-red,
+//         selector: '.theme-red'
+//     ),
+//     'green': (
+//         color: $base-color-green,
+//         filter: $base-filter-green,
+//         selector: '.theme-green'
+//     ),
+//     'purple': (
+//         color: $base-color-purple,
+//         filter: $base-filter-purple,
+//         selector: '.theme-purple'
+//     ),
+//     'cyan': (
+//         color: $base-color-cyan,
+//         filter: $base-filter-cyan,
+//         selector: '.theme-cyan'
+//     )
+// );
+
+// 主生成函数
+
+// @function generate-theme-variables($base-color, $filter) {
+//     $color: $base-color;
+//     $color-3: color.adjust($base-color, $alpha: -0.4);
+//     $color-5: color.adjust($base-color, $alpha: -0.6);
+//     $color-7: color.adjust($base-color, $alpha: -0.7);
+//     $color-8: color.adjust($base-color, $alpha: -0.8);
+//     $color-9: color.adjust($base-color, $alpha: -0.9);
+//     $darker-color: color.adjust($base-color, $lightness: -10%);
+
+//     @return (
+//         --base-color-06: #{color.adjust($base-color, $alpha: -0.94)},
+//         --base-color-12: #{color.adjust($base-color, $alpha: -0.88)},
+//         --base-color-20: #{color.adjust($base-color, $alpha: -0.8)},
+//         --base-color-50: #{color.adjust($base-color, $alpha: -0.5)},
+//         --lighter-color: #{color.adjust($base-color, $lightness: 14%)},
+//         --darken-color: #{color.adjust($base-color, $lightness: -14%)},
+//         --lighter-bg-color: #{color.adjust($base-color, $alpha: -0.88, $lightness: 14%)},
+//         --darken-bg-color: #{color.adjust($base-color, $alpha: -0.88, $lightness: -14%)},
+//         --shadow-color: #{color.adjust($base-color, $lightness: 6%)},
+//         --base-color: #{$color},
+//         --base-filter: #{$filter},
+//         --el-color-primary: #{$color},
+//         --el-color-primary-light-3: #{$color-3},
+//         --el-color-primary-light-5: #{$color-5},
+//         --el-color-primary-light-7: #{$color-7},
+//         --el-color-primary-light-8: #{$color-8},
+//         --el-color-primary-light-9: #{$color-9},
+//         --el-color-primary-dark-2: #{$darker-color}
+//     );
+// }
+
+// 遍历生成所有主题
+
+// @each $name, $config in $themes {
+//     #{map.get($config, 'selector')} {
+//         $variables: generate-theme-variables(
+//             map.get($config, 'color'),
+//             map.get($config, 'filter')
+//         );
+
+//         @each $var, $value in $variables {
+//             #{$var}: $value;
+//         }
+//     }
+// }
+
+.theme-red {
+    --base-color-06: #d60f200f;
+    --base-color-12: #d60f201f;
+    --base-color-20: #d60f2033;
+    --base-color-50: #d60f2080;
+    --lighter-color: #f13b4b;
+    --darken-color: #930a16;
+    --lighter-bg-color: #f13b4b1f;
+    --darken-bg-color: #930a161f;
+    --shadow-color: #ef1528;
+    --base-color: #d60f20;
+    --base-filter: hue-rotate(140deg);
+    --el-color-primary: #d60f20;
+    --el-color-primary-light-3: #d60f2099;
+    --el-color-primary-light-5: #d60f2066;
+    --el-color-primary-light-7: #d60f204d;
+    --el-color-primary-light-8: #d60f2033;
+    --el-color-primary-light-9: #d60f201a;
+    --el-color-primary-dark-2: #a60c19;
+}
+
+.theme-green {
+    --base-color-06: #4dc86f0f;
+    --base-color-12: #4dc86f1f;
+    --base-color-20: #4dc86f33;
+    --base-color-50: #4dc86f80;
+    --lighter-color: #84d99b;
+    --darken-color: #319d4f;
+    --lighter-bg-color: #84d99b1f;
+    --darken-bg-color: #319d4f1f;
+    --shadow-color: #64cf82;
+    --base-color: #4dc86f;
+    --base-filter: hue-rotate(245deg);
+    --el-color-primary: #4dc86f;
+    --el-color-primary-light-3: #4dc86f99;
+    --el-color-primary-light-5: #4dc86f66;
+    --el-color-primary-light-7: #4dc86f4d;
+    --el-color-primary-light-8: #4dc86f33;
+    --el-color-primary-light-9: #4dc86f1a;
+    --el-color-primary-dark-2: #35ad56;
+}
+
+.theme-purple {
+    --base-color-06: #ac25e60f;
+    --base-color-12: #ac25e61f;
+    --base-color-20: #ac25e633;
+    --base-color-50: #ac25e680;
+    --lighter-color: #c465ed;
+    --darken-color: #8114af;
+    --lighter-bg-color: #c465ed1f;
+    --darken-bg-color: #8114af1f;
+    --shadow-color: #b640e9;
+    --base-color: #ac25e6;
+    --base-filter: hue-rotate(50deg);
+    --el-color-primary: #ac25e6;
+    --el-color-primary-light-3: #ac25e699;
+    --el-color-primary-light-5: #ac25e666;
+    --el-color-primary-light-7: #ac25e64d;
+    --el-color-primary-light-8: #ac25e633;
+    --el-color-primary-light-9: #ac25e61a;
+    --el-color-primary-dark-2: #8e16c2;
+}
+
+.theme-cyan {
+    --base-color-06: #13c2c20f;
+    --base-color-12: #13c2c21f;
+    --base-color-20: #13c2c233;
+    --base-color-50: #13c2c280;
+    --lighter-color: #32ebeb;
+    --darken-color: #0d8181;
+    --lighter-bg-color: #32ebeb1f;
+    --darken-bg-color: #0d81811f;
+    --shadow-color: #16dede;
+    --base-color: #13c2c2;
+    --base-filter: hue-rotate(-45deg);
+    --el-color-primary: #13c2c2;
+    --el-color-primary-light-3: #13c2c299;
+    --el-color-primary-light-5: #13c2c266;
+    --el-color-primary-light-7: #13c2c24d;
+    --el-color-primary-light-8: #13c2c233;
+    --el-color-primary-light-9: #13c2c21a;
+    --el-color-primary-dark-2: #0e9494;
+}
+
+.theme-default {
+    --base-color: #2978f9;
+    --base-color-06: #2978f90f;
+    --base-color-12: #2978f91f;
+    --base-color-20: #2978f933;
+    --base-color-50: #2978f980;
+    --lighter-color: #6ea4fb;
+    --darken-color: #0654d5;
+    --lighter-bg-color: #6ea4fb1f;
+    --darken-bg-color: #0654d51f;
+    --shadow-color: #478bfa;
+    --base-filter: none;
+    --el-color-primary: #2978f9;
+    --el-color-primary-light-3: #2978f999;
+    --el-color-primary-light-5: #2978f966;
+    --el-color-primary-light-7: #2978f94d;
+    --el-color-primary-light-8: #2978f933;
+    --el-color-primary-light-9: #2978f91a;
+    --el-color-primary-dark-2: #1e53a8;
+}

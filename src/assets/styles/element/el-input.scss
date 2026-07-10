@@ -1,0 +1,89 @@
+@use 'sass:color';
+@use '@/assets/styles/variable.scss' as *;
+
+.el-input.el-input--large {
+    --el-component-size-large: 38px;
+}
+
+// el-input
+.el-input.transparent-input,
+.el-input.transparent-input.is-disabled {
+    $color: rgb(51, 51, 51, 1); // 定义基础颜色
+    $bgColor: transparent;
+    $underColor: rgb(179, 179, 179, 1);
+
+    .el-input__wrapper {
+        background-color: $bgColor;
+        box-shadow: none;
+
+        &.is-focus {
+            box-shadow: none;
+        }
+
+        .el-input__inner {
+            height: 24px;
+            font-size: 13px !important;
+            line-height: 24px;
+            color: $color;
+
+            &::placeholder {
+                color: $underColor;
+            }
+
+            &[readonly] {
+                pointer-events: none;
+            }
+        }
+
+        .el-input__suffix .el-input__icon:not(.el-input__validateIcon),
+        .el-input__prefix .el-input__icon {
+            color: $color;
+        }
+
+        .el-input__count .el-input__count-inner {
+            color: $color;
+            background-color: transparent;
+        }
+    }
+}
+
+.el-input.search-input {
+    background-color: var(--base-color-12);
+    border-radius: 21px;
+
+    .el-input__wrapper {
+        font-size: 12px;
+        background: none;
+        box-shadow: none;
+
+        &.is-focus {
+            // box-shadow: 0 0 0 1px $shadowColor inset;
+        }
+
+        .el-input__inner {
+            color: var(--el-color-primary);
+
+            &::placeholder {
+                color: var(--base-color-50);
+            }
+        }
+
+        .el-input__suffix .el-input__icon:not(.el-input__validateIcon),
+        .el-input__prefix .el-input__icon {
+            color: var(--el-color-primary);
+        }
+
+        .el-input__count .el-input__count-inner {
+            color: var(--el-color-primary);
+            background-color: transparent;
+        }
+    }
+}
+
+.el-input-number.number {
+    width: 100%;
+
+    .el-input__inner {
+        text-align: left;
+    }
+}

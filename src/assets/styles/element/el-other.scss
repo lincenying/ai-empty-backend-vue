@@ -1,0 +1,10 @@
+/** **/
+#app {
+    .el-loading-mask {
+        --el-mask-color: rgb(255, 255, 255, 0.4);
+    }
+}
+
+.el-empty__description {
+    word-break: break-all;
+}

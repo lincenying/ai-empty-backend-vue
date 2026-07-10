@@ -1,0 +1,462 @@
+/* 浏览器自带滚动条样式覆盖 */
+::-webkit-scrollbar {
+    /* 滚动条整体样式 */
+    width: 6px;
+
+    /* 高宽分别对应横竖滚动条的尺寸 */
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+    background: rgb(124, 125, 128, 0.65) !important;
+
+    /* 滚动条里面小方块 */
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+
+    /* 滚动条里面轨道 */
+
+    /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+    border-radius: 3px;
+}
+
+html {
+    --border-custom-color: #d9d9d9 !global;
+    --border-custom-shadow: 0 1px 2px 0 rgb(0, 0, 0, 0.03), 0 1px 6px -1px rgb(0, 0, 0, 0.02), 0 2px 4px 0 rgb(0, 0, 0, 0.02);
+    --border-common-shadow: 0px 0px 12px rgb(0, 0, 0, 0.12);
+
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-synthesis: none;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    min-width: 0;
+    min-height: 0;
+}
+
+main {
+    display: block;
+    flex: 1 1 auto;
+    flex-basis: auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+aside,
+header,
+footer {
+    flex-shrink: 0;
+}
+
+.base-color {
+    color: var(--base-color);
+}
+
+.base-draken-color {
+    color: var(--darken-color);
+}
+
+.bg-base-color {
+    background-color: var(--base-color);
+}
+
+.bg-draken-color {
+    background-color: var(--darken-color);
+}
+
+.base-link {
+    position: relative;
+    display: inline-block;
+    color: var(--base-color);
+
+    &::after,
+    &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: '';
+        transition: transform 0.5s;
+    }
+
+    &::before {
+        z-index: 1;
+        background-color: var(--base-color-20);
+    }
+
+    &::after {
+        z-index: 2;
+        background-color: var(--base-color);
+        transform: scaleX(0);
+    }
+
+    &:hover {
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    .global-bg-mode {
+        background: rgb(242, 245, 247, 0.8);
+
+        // backdrop-filter: blur(0.5px);
+    }
+
+    .el-table {
+        background: transparent;
+    }
+
+    .el-menu {
+        background: transparent;
+        border-right: none;
+
+        div,
+        input,
+        span {
+            background: transparent;
+        }
+    }
+
+    .el-menu-item::before,
+    .el-sub-menu__title::before {
+        display: none;
+    }
+
+    .el-menu-item:hover {
+        background-color: transparent;
+    }
+
+    .el-transfer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@keyframes cur-node-bounce {
+    $dy: 2px;
+
+    0% {
+        transform: translateY(0);
+    }
+
+    5% {
+        transform: translateY(#{$dy});
+    }
+
+    15% {
+        transform: translateY(-#{$dy});
+    }
+
+    25% {
+        transform: translateY(#{$dy});
+    }
+
+    35% {
+        transform: translateY(-#{$dy});
+    }
+
+    55% {
+        transform: translateY(-#{$dy});
+    }
+
+    65% {
+        transform: translateY(#{$dy});
+    }
+
+    75% {
+        transform: translateY(-#{$dy});
+    }
+
+    85% {
+        transform: translateY(#{$dy});
+    }
+
+    95% {
+        transform: translateY(-#{$dy});
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.form .el-select {
+    width: 100% !important;
+}
+
+/* 顶部进度条颜色 */
+#nprogress {
+    .bar {
+        height: 2px !important;
+        background: var(--base-color) !important;
+    }
+
+    .spinner {
+        top: 5px !important;
+        right: 5px !important;
+
+        .spinner-icon {
+            border-width: 3px;
+            border-top-color: var(--base-color) !important;
+            border-left-color: var(--base-color) !important;
+        }
+    }
+}
+
+:focus-visible {
+    outline: none !important;
+}
+
+/* 定义进入和离开的过渡效果 */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+
+    /* 持续时间可以根据需要调整 */
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.shadow-box {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px 0 rgb(82, 90, 102, 0.08), 0 0 4px 0 rgb(82, 90, 102, 0.08);
+}
+
+// 文字链接
+.cell-link {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// 状态：有效、无效、保密
+.row-state-flex {
+    display: flex;
+    align-items: center;
+
+    i {
+        margin-left: 3px;
+    }
+
+    &.active {
+        cursor: pointer;
+    }
+}
+
+.row-state {
+    position: relative;
+    display: inline-flex;
+    padding-right: 8px;
+    padding-left: 20px;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: left;
+    border-radius: 13px;
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        z-index: 2;
+        width: 3px;
+        height: 3px;
+        content: '';
+        border-radius: 100%;
+        transform: translateY(-50%);
+    }
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 7px;
+        z-index: 1;
+        width: 9px;
+        height: 9px;
+        content: '';
+        border-radius: 100%;
+        transform: translateY(-50%);
+    }
+
+    &.open {
+        color: var(--base-color);
+        background-color: var(--base-color-06);
+
+        &::before {
+            background-color: var(--base-color);
+        }
+
+        &::after {
+            background-color: var(--base-color-20);
+        }
+    }
+
+    &.active {
+        color: rgb(14, 179, 14, 1);
+        background-color: rgb(14, 179, 14, 0.08);
+
+        &::before {
+            background-color: rgb(14, 179, 14, 1);
+        }
+
+        &::after {
+            background-color: rgb(14, 179, 14, 0.24);
+        }
+    }
+
+    &.warning {
+        color: rgb(242, 145, 0, 1);
+        background-color: rgb(242, 145, 0, 0.08);
+
+        &::before {
+            background-color: rgb(242, 145, 0, 1);
+        }
+
+        &::after {
+            background-color: rgb(242, 145, 0, 0.24);
+        }
+    }
+
+    &.error {
+        color: rgb(250, 72, 8, 1);
+        background-color: rgb(250, 72, 8, 0.08);
+
+        &::before {
+            background-color: rgb(250, 72, 8, 1);
+        }
+
+        &::after {
+            background-color: rgb(250, 72, 8, 0.24);
+        }
+    }
+
+    &.unactive {
+        color: rgb(96, 98, 102, 1);
+        background-color: rgb(96, 98, 102, 0.08);
+
+        &::before {
+            background-color: rgb(96, 98, 102, 1);
+        }
+
+        &::after {
+            background-color: rgb(96, 98, 102, 0.24);
+        }
+    }
+}
+
+// 列表工具栏样式
+.header-tools-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &.divided {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .btns-box {
+        flex-shrink: 0;
+    }
+
+    .search-box {
+        display: flex;
+        flex: 1;
+        flex-shrink: 0;
+        flex-flow: row wrap;
+        gap: 10px;
+        align-items: center;
+
+        &.search-left-box {
+            justify-content: flex-start;
+        }
+
+        &.search-right-box {
+            justify-content: flex-end;
+        }
+
+        .search-item {
+            min-width: 120px;
+
+            .el-input {
+                --el-input-width: 220px;
+            }
+        }
+
+        .search-btn-item {
+            min-width: auto;
+        }
+    }
+}
+
+// el-progress
+.file-item-box {
+    .el-progress__text {
+        min-width: auto !important;
+    }
+}
+
+.global-box-table {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.global-table {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    .system-table {
+        flex: 1 1 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .system-page {
+        margin: 10px 20px;
+    }
+}

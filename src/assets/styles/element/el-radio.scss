@@ -1,0 +1,24 @@
+// el-radio
+.el-radio.tip-radio {
+    position: relative !important;
+    height: auto !important;
+
+    &.el-radio--large {
+        min-height: 24px;
+        padding-right: 24px !important;
+
+        .el-radio__input {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+        }
+
+        .el-radio__label {
+            line-height: 24px;
+
+            .tip {
+                color: #bebebe !important;
+            }
+        }
+    }
+}

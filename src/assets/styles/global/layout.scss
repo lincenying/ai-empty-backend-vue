@@ -63,6 +63,34 @@
     }
 }
 
+.menu-aside {
+    .aside-collapse-btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 48px;
+        margin-top: -24px;
+        color: #909399;
+        background-color: #e2e8ff;
+        border-radius: 0 8px 8px 0;
+        transform: translateX(100%);
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: var(--base-color);
+        }
+
+        .aside-collapse-icon {
+            font-size: 14px;
+        }
+    }
+}
+
 .main-box-wrap {
     box-sizing: border-box;
     width: calc(100% - 24px);

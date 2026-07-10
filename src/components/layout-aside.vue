@@ -1,6 +1,9 @@
 <template>
-    <aside :class="isCollapse ? 'w-64px is-collapse' : 'w-200px no-collapse'" class="menu-aside transition-width-ease-2 overflow-hidden bg-hex-E2E8FF m-20px rounded-10px">
-        <section class="flex-col w-full h-full menu-box">
+    <aside
+        :class="isCollapse ? 'w-64px is-collapse' : 'w-200px no-collapse'"
+        class="menu-aside relative transition-width-ease-2 bg-hex-E2E8FF m-20px rounded-10px"
+    >
+        <section class="flex-col w-full h-full overflow-hidden menu-box rounded-10px">
             <main flex="auto" min-h-1px>
                 <div class="menu-area h-full">
                     <el-scrollbar class="h-full">
@@ -8,19 +11,17 @@
                     </el-scrollbar>
                 </div>
             </main>
-            <footer flex="~ items-center justify-center" mt-20px pb-20px>
-                <el-tooltip
-                    class="box-item"
-                    effect="dark"
-                    :content="isCollapse ? '展开菜单' : '折叠菜单'"
-                    placement="bottom"
-                >
-                    <div class="chat-menu-item" cursor-pointer @click="isCollapse = !isCollapse">
-                        <i class="chat-menu-icon" :class="!isCollapse ? 'i-lucide-chevron-first' : 'i-lucide-chevron-last'"></i>
-                    </div>
-                </el-tooltip>
-            </footer>
         </section>
+        <el-tooltip
+            class="box-item"
+            effect="dark"
+            :content="isCollapse ? '展开菜单' : '折叠菜单'"
+            placement="right"
+        >
+            <div class="aside-collapse-btn" cursor-pointer @click="isCollapse = !isCollapse">
+                <i class="aside-collapse-icon inline-block" :class="!isCollapse ? 'i-lucide-chevron-first' : 'i-lucide-chevron-last'"></i>
+            </div>
+        </el-tooltip>
     </aside>
 </template>
 

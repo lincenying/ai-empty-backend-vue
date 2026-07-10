@@ -26,12 +26,39 @@
 .layout-header {
     box-shadow: 0 2px 8px 0 rgb(82, 90, 102, 0.1), 0 1px 2px 0 rgb(82, 90, 102, 0.06);
 
+    .sys-title {
+        font-size: 16px;
+        color: rgb(49, 55, 61, 1);
+        text-shadow: none;
+        letter-spacing: normal;
+        white-space: nowrap;
+    }
+
     .layout-header-link {
         transition: color 0.15s ease, background-color 0.15s ease;
 
         &:hover {
             color: var(--base-color);
             background-color: rgb(255, 255, 255, 0.5);
+        }
+    }
+
+    .chat-menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: rgb(255, 255, 255, 0.5);
+        }
+
+        .chat-menu-icon {
+            font-size: 18px;
+            color: rgb(49, 55, 61, 1);
         }
     }
 }

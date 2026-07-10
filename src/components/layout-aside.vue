@@ -14,7 +14,7 @@
                 </div>
             </main>
             <footer flex="~ items-center justify-around" mt-20px pb-20px>
-                <ElPopover ref="popoverRef" placement="right" :width="150" trigger="click">
+                <ElPopover placement="right" :width="150" trigger="click">
                     <template #reference>
                         <div class="chat-menu-item" cursor-pointer>
                             <i class="chat-menu-icon i-lucide-user-round"></i>

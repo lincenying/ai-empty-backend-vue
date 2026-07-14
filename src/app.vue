@@ -13,7 +13,7 @@
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
-import layoutRouter from './pages/layout-router.vue'
+import layoutRouter from './layouts/layout-router.vue'
 import useMenuStore from './stores/use-menu-store'
 
 import { useUserStore } from './stores/use-user-store'

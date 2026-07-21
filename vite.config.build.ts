@@ -16,8 +16,8 @@ const config: { server: ServerOptions, build: BuildOptions } = {
         proxy: {
             // 代理配置
             '/cbm': {
-                target: 'https://39.183.161.132:51281',
-                // target: 'http://192.168.5.202:28080',
+                // target: 'https://39.183.161.132:51281',
+                target: 'http://192.168.5.202:58080',
                 // target: 'http://192.168.5.210:18101',
                 // target: "http://192.168.5.166:18101",
                 changeOrigin: true,
@@ -29,7 +29,7 @@ const config: { server: ServerOptions, build: BuildOptions } = {
             clientFiles: ['./src/main.ts', './src/pages/**/*.vue'],
         },
         hmr: {
-            port: 58051,
+            port: 59051,
         },
     },
     build: {

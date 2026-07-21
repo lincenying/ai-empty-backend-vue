@@ -2,6 +2,7 @@ import NProgress from 'nprogress' // 导入 nprogress模块
 import Viewer from 'v-viewer'
 import { createApp } from 'vue'
 
+import element from '@/config/element'
 import router from '@/router'
 import pinia from '@/stores'
 import App from './app.vue'
@@ -20,6 +21,7 @@ NProgress.configure({ easing: 'ease', speed: 200, showSpinner: true })
 const app = createApp(App)
 // 注入pinia
 app.use(pinia)
+app.use(element)
 app.use(Viewer, {
     defaultOptions: {
         zIndex: 9999,

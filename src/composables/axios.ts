@@ -97,7 +97,7 @@ const http = axios.create({
 
 http.interceptors.request.use(
     (config) => {
-        emitter.emit('nprogress-start', 'api')
+        emitter.emit('nprogress-start', { type: 'api', url: config.url ?? '' })
         return config
     },
     (error) => {
@@ -107,11 +107,11 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
     (response) => {
-        emitter.emit('nprogress-done', 'api')
+        emitter.emit('nprogress-done', { type: 'api', url: response.config.url ?? '' })
         return response
     },
     (error) => {
-        emitter.emit('nprogress-done', 'api')
+        emitter.emit('nprogress-done', { type: 'api', url: error.config?.url ?? '' })
         return Promise.reject(error)
     },
 )

@@ -1,4 +1,4 @@
-import mitt from 'mitt'
+import mitt, { type EventType } from 'mitt'
 
 /** 未登录, 或者登录失效 */
 export const noAuth = useEventBus('no-auth')
@@ -38,12 +38,12 @@ interface EmitterEvents {
     'need-login': void
     'api-error': string
     'cancel-interval': void
-    'nprogress-start': string
-    'nprogress-done': string
+    'nprogress-start': { type: string, url: string }
+    'nprogress-done': { type: string, url: string }
 }
 
-// 添加索引签名以满足mitt的类型约束
-type EmitterEventsMap = Record<keyof EmitterEvents, any> & Record<string, unknown>
+/** 满足 mitt 的 Record 约束，同时保留各事件载荷的具体类型 */
+type EmitterEventsMap = EmitterEvents & Record<EventType, unknown>
 
 const emitter = mitt<EmitterEventsMap>()
 

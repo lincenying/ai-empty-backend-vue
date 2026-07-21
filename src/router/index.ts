@@ -61,13 +61,19 @@ const router = createRouter({
 
 // 路由跳转前的监听操作
 router.beforeEach(() => {
-    emitter.emit('nprogress-start', 'router')
+    emitter.emit('nprogress-start', {
+        type: 'router',
+        url: router.currentRoute.value.path,
+    })
     return true
 })
 
 // 路由跳转后的监听操作
 router.afterEach(() => {
-    emitter.emit('nprogress-done', 'router')
+    emitter.emit('nprogress-done', {
+        type: 'router',
+        url: router.currentRoute.value.path,
+    })
 })
 
 export default router

@@ -40,8 +40,8 @@ emitter.on('api-error', (msg) => {
 let pendingRequests = 0
 let doneTimer: NodeJS.Timeout | null = null
 
-emitter.on('nprogress-start', (type: string) => {
-    console.log(`NProgress.start.${type}`)
+emitter.on('nprogress-start', ({ type, url }: { type: string, url: string }) => {
+    console.log(`%cNProgress.start.${type}.${url}.${pendingRequests + 1}`, 'color: blue')
     if (pendingRequests === 0) {
         if (!NProgress.isStarted()) {
             NProgress.start()
@@ -61,15 +61,15 @@ emitter.on('nprogress-start', (type: string) => {
     pendingRequests++
 })
 
-emitter.on('nprogress-done', (type: string) => {
+emitter.on('nprogress-done', ({ type, url }: { type: string, url: string }) => {
     pendingRequests--
+    console.log(`%cNProgress.done.${type}.${url}.${pendingRequests}`, 'color: green')
     if (pendingRequests <= 0) {
         // 延迟关闭，给可能的后续请求（如路由切换后的数据请求）一个机会
         if (doneTimer)
             clearTimeout(doneTimer)
         doneTimer = setTimeout(() => {
             NProgress.done()
-            console.log(`NProgress.done.${type}`)
             doneTimer = null
         }, 300) // 延迟时间可根据实际场景调整（例如 50~200ms）
     }

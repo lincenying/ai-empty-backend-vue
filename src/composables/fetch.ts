@@ -130,8 +130,6 @@ function handleJsonBusinessResponse(
         if (!checkNeedLogin()) {
             clearLoginData()
             emitter.emit('need-login')
-            if (!disabledProgress)
-                emitter.emit('nprogress-done', 'api')
             return payload
         }
     }
@@ -143,8 +141,6 @@ function handleJsonBusinessResponse(
                 (payload.message as string) || (payload.error as string) || '请求失败',
             )
         }
-        if (!disabledProgress)
-            emitter.emit('nprogress-done', 'api')
         return payload
     }
 
@@ -152,8 +148,6 @@ function handleJsonBusinessResponse(
     if (import.meta.env.DEV && !disabledProgress)
         console.log(`%c[fetch: ${url}] >> `, 'color: red', payload.result)
 
-    if (!disabledProgress)
-        emitter.emit('nprogress-done', 'api')
     return payload
 }
 
@@ -255,7 +249,7 @@ export const useApi: (needSignal?: boolean) => FetchApiType = (needSignal = fals
                     async onRequest(ctx) {
                         await invokeFetchHooks(userOnRequest, ctx)
                         if (!disabledProgress)
-                            emitter.emit('nprogress-start', 'api')
+                            emitter.emit('nprogress-start', { type: 'api', url })
                     },
                     async onRequestError(ctx) {
                         await invokeFetchHooks(userOnRequestError, ctx)
@@ -267,8 +261,6 @@ export const useApi: (needSignal?: boolean) => FetchApiType = (needSignal = fals
                     async onResponse(ctx) {
                         await invokeFetchHooks(userOnResponse, ctx)
                         if (isRawBody) {
-                            if (!disabledProgress)
-                                emitter.emit('nprogress-done', 'api')
                             return
                         }
                         if (!ctx.response)
@@ -278,8 +270,6 @@ export const useApi: (needSignal?: boolean) => FetchApiType = (needSignal = fals
                     async onResponseError(ctx) {
                         await invokeFetchHooks(userOnResponseError, ctx)
                         console.error('[fetch response error]', ctx.response?.status)
-                        if (!disabledProgress)
-                            emitter.emit('nprogress-done', 'api')
                     },
                     headers: {
                         ...(isFormData(payload) ? {} : { 'Content-Type': 'application/json' }),
@@ -289,6 +279,8 @@ export const useApi: (needSignal?: boolean) => FetchApiType = (needSignal = fals
             }
             finally {
                 clearPending()
+                if (!disabledProgress)
+                    emitter.emit('nprogress-done', { type: 'api', url })
             }
         },
     }

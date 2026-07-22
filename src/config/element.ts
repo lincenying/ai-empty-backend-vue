@@ -40,6 +40,13 @@ emitter.on('api-error', (msg) => {
 let pendingRequests = 0
 let doneTimer: NodeJS.Timeout | null = null
 
+emitter.on('nprogress-reset', () => {
+    pendingRequests = 0
+    doneTimer = null
+    NProgress.done()
+    console.log(`%cNProgress reset`, 'color: red')
+})
+
 emitter.on('nprogress-start', ({ type, url }: { type: string, url: string }) => {
     console.log(`%cNProgress.start.${type}.${url}.${pendingRequests + 1}`, 'color: blue')
     if (pendingRequests === 0) {

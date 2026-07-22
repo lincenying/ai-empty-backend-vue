@@ -13,9 +13,10 @@
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
+import emitter from './composables/emitter'
 import layoutRouter from './layouts/layout-router.vue'
-import useMenuStore from './stores/use-menu-store'
 
+import useMenuStore from './stores/use-menu-store'
 import { useUserStore } from './stores/use-user-store'
 import { checkNeedLogin } from './utils'
 import TimestampChecker from './utils/check-reload'
@@ -25,6 +26,24 @@ const router = useRouter()
 const layout = computed(() => {
     const route = router.currentRoute.value
     return route.meta.layout || 'default'
+})
+
+const route = useRoute()
+/** 首屏路由就绪后才允许重置进度条，避免刷新 / 首次打开误触发 */
+const routeWatchReady = ref(false)
+
+router.isReady().then(() => {
+    // 等首屏导航（含守卫内重定向）完全结束后再开启
+    nextTick(() => {
+        routeWatchReady.value = true
+    })
+})
+
+watch(() => route.fullPath, (newPath, oldPath) => {
+    // oldPath 为 undefined 表示首次回调；首屏未就绪时一律跳过
+    if (!routeWatchReady.value || oldPath == null || oldPath === newPath)
+        return
+    emitter.emit('nprogress-reset')
 })
 
 const menuStore = useMenuStore()

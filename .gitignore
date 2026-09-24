@@ -29,3 +29,4 @@ dist-ssr
 .cursor/rules/global*.mdc
 docs/ziliao
 .qoder/rules/global*.mdc
+.dsh/rules/global*.mdc

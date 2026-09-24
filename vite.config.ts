@@ -9,10 +9,10 @@ import { defineConfig, loadEnv } from 'vite'
 import Inspect from 'vite-plugin-inspect'
 import Progress from 'vite-plugin-progress'
 
-import Build, { outDir } from './vite.config.build'
-import Components from './vite.config.components'
-import Css from './vite.config.css'
-import Macros from './vite.config.macros'
+import Build, { outDir } from './vite.config.build.ts'
+import Components from './vite.config.components.ts'
+import Css from './vite.config.css.ts'
+import Macros from './vite.config.macros.ts'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {

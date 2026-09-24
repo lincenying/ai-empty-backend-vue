@@ -42,7 +42,10 @@ let doneTimer: NodeJS.Timeout | null = null
 
 emitter.on('nprogress-reset', () => {
     pendingRequests = 0
-    doneTimer = null
+    if (doneTimer) {
+        clearTimeout(doneTimer)
+        doneTimer = null
+    }
     NProgress.done()
     console.log(`%cNProgress reset`, 'color: red')
 })

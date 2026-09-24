@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@11.10.0",
+  "packageManager": "pnpm@12.6.0",
   "scripts": {
     "serve": "vite",
     "dev": "vite",
@@ -54,6 +54,7 @@
     "cross-env": "catalog:dev",
     "eslint": "catalog:lint",
     "eslint-plugin-format": "catalog:lint",
+    "postcss-px-to-viewport-8-plugin": "catalog:dev",
     "sass-embedded": "catalog:dev",
     "sass-loader": "catalog:dev",
     "stylelint": "catalog:lint",

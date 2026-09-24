@@ -41,7 +41,7 @@ html {
         'Segoe UI Symbol',
         'Noto Color Emoji'; /* 4 */
 
-    line-height: 1.5; /* 1 */
+    line-height: 24px; /* 1 */
     text-size-adjust: 100%; /* 2 */
     tab-size: 4; /* 3 */
 }

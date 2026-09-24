@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+/**
+ * 设计稿与单位（src/design.config.ts、vite.config.css.ts）
+ * - 画布 #{$vmDesignWidth}×#{$vmDesignHeight}，样式按稿面量值写 **px**
+ * - PostCSS 将 px 转为 rem，配合 html 的 font-size（100/#{$vmDesignWidth}×视口）实现随屏宽缩放
+ */
+:root {
+    --design-width: #{$vmDesignWidth}px;
+    --design-height: #{$vmDesignHeight}px;
+    --design-multiple: #{$vmDesignMultiple};
+}
+
+html {
+    font-size: math.div($vmFontSize, $vmDesignWidth) * 100vw;
+
+    @media screen and (max-width: $vmMinWindow) {
+        font-size: math.div($vmFontSize, $vmDesignWidth) * $vmMinWindow;
+    }
+}

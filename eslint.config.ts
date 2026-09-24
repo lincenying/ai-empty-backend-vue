@@ -1,16 +1,13 @@
 import { readFile } from 'node:fs/promises'
-
 import lincy from '@lincy/eslint-config'
 
+const url = new URL('./.eslintrc-auto-import.json', import.meta.url)
 const autoImport = JSON.parse(
-    (
-        await readFile(new URL('./.eslintrc-auto-import.json', import.meta.url))
-    ).toString(),
+    (await readFile(url)).toString(),
 )
 
-const config = await lincy(
+const config = lincy(
     {
-        unocss: true,
         formatters: {
             css: false,
             graphql: true,
@@ -18,10 +15,17 @@ const config = await lincy(
             markdown: true,
         },
         toml: false,
-        pnpm: true,
         overrides: {
-            perfectionist: {},
+            stylistic: {
+                'style/jsx-max-props-per-line': ['error', { maximum: 4 }],
+            },
+            ignores: [
+                '**/assets',
+                '**/static',
+                '**/docs/**/*.md',
+            ],
         },
+        unocss: true,
     },
     {
         languageOptions: {
@@ -29,9 +33,6 @@ const config = await lincy(
                 ...autoImport.globals,
             },
         },
-    },
-    {
-        ignores: ['**/assets', '**/static', '**/public', '**/polyfill', '**/cbm_v5', '**/cbm_v6'],
     },
 )
 

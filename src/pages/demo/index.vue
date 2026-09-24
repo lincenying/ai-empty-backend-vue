@@ -43,7 +43,6 @@
             </div>
             <div class="global-box-table min-h-0 flex-1">
                 <global-table
-                    ref="globalTableRef"
                     v-loading="loading"
                     prop-key="demo" row-key="id"
                     :border="false" :page="page" :show-selection="true" :show-index="true" :data="tableData"

@@ -8,9 +8,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export const outDir = '../_build/cbm_v6'
 
+const port = 5101
+
 const config: { server: ServerOptions, build: BuildOptions } = {
     server: {
-        port: 8055,
+        port,
         host: '0.0.0.0',
         open: true,
         proxy: {
@@ -28,8 +30,8 @@ const config: { server: ServerOptions, build: BuildOptions } = {
         warmup: {
             clientFiles: ['./src/main.ts', './src/pages/**/*.vue'],
         },
-        hmr: {
-            port: 59051,
+        ws: {
+            port: Number(`1${port}`),
         },
     },
     build: {
